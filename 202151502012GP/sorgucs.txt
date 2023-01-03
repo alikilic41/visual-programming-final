@@ -1,0 +1,45 @@
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using MySql.Data;
+using MySql.Data.MySqlClient;
+
+namespace alee
+{
+    public class sorgu
+    {
+        public MySqlConnection mysqlbaglan;
+        public void BaglantiKur()
+        {
+            mysqlbaglan = new MySqlConnection("Server=pma/;Database=aleefastfood;Uid=root;Pwd=;''");
+            try
+            {
+                mysqlbaglan.Open();
+                if (mysqlbaglan.State != ConnectionState.Closed)
+                {
+                    MessageBox.Show("Bağlantı Başarılı Bir Şekilde Gerçekleşti");
+                }
+                else
+                {
+                    MessageBox.Show("Maalesef Bağlantı Yapılamadı...!");
+                }
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show("Hata! " + err.Message, "Hata Oluştu", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
+        }
+
+        public void kullaniciekle(string kulladi, string kullpwd) 
+        {
+          
+        }
+    }
+}
+
